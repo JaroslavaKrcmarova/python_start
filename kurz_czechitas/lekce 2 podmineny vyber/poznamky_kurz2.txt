@@ -1,0 +1,54 @@
+PODMINENY VYBER
+https://kodim.cz/czechitas/python-data-1/python-pro-data-1/podmineny-vyber/podmineny-vyber
+
+#nacteni dat
+import pandas as pd
+food_nutrient = pd.read_csv("food_nutrient.csv")
+food_nutrient.head()
+
+#cisteni dat - mazani nepotrebnzch sloupcu
+food_nutrient = food_nutrient.drop(columns=['data_points', 'derivation_id'])
+#unikatni hodnoty
+food_nutrient['name'].unique()
+food_nutrient['name'].nunique()
+food_nutrient['name'].value_count() #pocty nejcastej vzsyktovanych unik hodnto
+food_nutrient['name'].value_count().head(15) #top15 nejcastej vyskyt. hodnot
+
+# filtrace dle hodnot
+food_nutrient[food_nutrient['name'] == 'Magnesium, Mg'] #filtrace zaznamu ktere splnuji podminku
+
+podminka =  food_nutrient['name'] == 'Magnesium, Mg' #2.zpusob podmineneho filtrovani, podminku ukladam do promenne
+magnesium = food_nutrient[podminka]#ukladam do promenne 
+magnesium.describe() 	#popisni statistika, zjistim prumerny obsah napr
+magnesium['amount'].describe() 	#popisni statistika konkretniho sloupecku
+magnesium[magnesium['amount']>100] #dalsi filtrace
+
+OPRATORY
+> < == !=
+
+#vic podminek pro filtraci
+#dataframe[(podminka1) & | (podminka2)] #& AND |nebo
+
+#priklad
+calcium = food_nutrient[ (food_nutrient['name']=='Calcium, Ca' )
+                        & (food_nutrient['amount'] > 30)
+                        & (food_nutrient['amount'] < 500)
+                        ]
+
+#priklad 2.varianta SQL 
+food_nutrient.query('name == "Calcium, Ca" and 30 < amount < 500')
+
+#priklad 3.varianta between 
+food_nutrient[(food_nutrient["name"] == "Calcium, Ca") & food_nutrient["amount"].between(30, 500, inclusive="neither")]
+	...inclusive="neither" nebere koncove hodnotz
+	...inclusive="both" je to default a veme i obe hranicni hodnoty vic v dokumentaci
+
+
+# handle NaN hodnot .dropna()
+food_nutrient[food_nutrient["amount"].isna()] #vypise chybejici hodnoty
+food_nutrient[food_nutrient["amount"].notna()] #vypise nechybejici hodnoty
+#kdyz se jich chci zbavit .dropna()
+food_nutrient.dropna(subset="amount")
+#nahrazuji chybejici hodnotu.fillna()
+food_nutrient.fillna("Boruvkovy kolac")
+

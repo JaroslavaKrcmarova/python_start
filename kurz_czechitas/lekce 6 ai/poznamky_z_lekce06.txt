@@ -1,0 +1,5 @@
+AI 
+
+GitHub Copilot - stahnout extension
+
+Zdroj dat https://www.kaggle.com/datasets/joshuanaude/effects-of-alcohol-on-student-performance/data

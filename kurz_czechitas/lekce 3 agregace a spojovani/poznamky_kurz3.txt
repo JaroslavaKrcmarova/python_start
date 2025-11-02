@@ -1,0 +1,55 @@
+LEKCE 3 AGREGACE A SPOJOVANI//PANDAS
+
+https://kodim.cz/czechitas/python-data-1/python-pro-data-1/spojovani/sjednoceni-dat
+
+CONCAT() 
+- spojeni tabulek pod sebe
+- pd.concat([df1,df2])
+- spoji i nestejne tabulky ale atributy z jedne tab ktere nejsou v druhe naplni null hodnotami
+- pozor na index, metoda spojí za sebe indexy jednotlivých tabulek, vhodne je prepocitani indexu pres argument ignore index
+INDEX
+pd.concat([food_sample_100, food_other], ignore_index=True)
+	-ignoruje puvodni index, naindexuje si to sam
+
+MERGE()
+- spojeni pres klic stejne jako sql join
+- pokud se klic v obou jmenuje stejne nemusim psat klic
+- pd.merge(df1,df2) # spoji pres stejne pojmenovane sloupce
+- pd.merge(df1,df2,on ='') 
+		# argument ON pripisu spojovaci klic ON 
+- default je inner join!
+- spojeni pres jiny typ joinu zapiis pres argument how
+food_merge = pd.merge(food,food_nutrient, on ='fdc_id', how = 'inner') 
+	#do HOW pripis tzp joinu
+
+RENAME(columns={"puvodni_nazev": "novy_nazev"})
+-prepis nazov stlpca
+food_merged_brands.rename(columns={"name": "nutrition_name"})
+
+GROUP BY
+# df.groupby(dimenzi)[metrika].agg_funkce()
+#napr prumer pres kategorii
+protein.groupby('branded_food_category')['amount'].mean()
+	AGG FUNKCE
+		sum
+		size
+		nunique #pocet unik.hodnot
+		max
+		min
+		first
+		last
+		mean
+		median
+		var
+		std
+		all #True
+Vic agregaci v jednom dotazu
+# protein.groupby("branded_food_category").agg({"amount": ["mean", "count"],
+#                                                 # "dalsi sloupec" : "sum"
+#                                                 }
+#                                                 )
+protein.groupby("branded_food_category").agg(sloupec=("amount", "mean"))
+
+SORT_VALUES()
+#.sort_values(ascending=False)
+

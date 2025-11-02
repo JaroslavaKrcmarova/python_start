@@ -1,0 +1,20 @@
+LEKCE 4 PIVOT
+
+CUT ..kategoriyace
+bins = [-1,20,100,float('inf')]
+labels = ['nizky','stredni','vysoky']
+cholesterol['category'] = pd.cut(cholesterol["amount"],bins=bins,labels=labels)
+
+CROSSTAB ...pivotka
+pd.crosstab(cholesterol["branded_food_category"],cholesterol["category"])
+Dalsi mo argumentz
+margins=True ...prida celkove soucty
+normalize="index" ...pocita % per radek
+normalize="index" ..
+
+
+.TO_DATIME
+.DT.DATE
+.DT.DAY_NAME()
+.SHIFT(PERIODS=-1) ... posun zaznam nasledujici
+.SHIFT(PERIODS=1) ... posun zaznam predchozi

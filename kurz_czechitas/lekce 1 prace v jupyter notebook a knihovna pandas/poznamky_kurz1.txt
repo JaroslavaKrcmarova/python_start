@@ -1,0 +1,43 @@
+
+-- alternativa k VS code souboru .ipynb je COLAB soubor se stejnou priponou -neco jako Google docs subor
+
+PRACA V JUPYTER NOTEBOOK
+
+--v souboru ipynb +code vlozim bunku napisu print("Ahoj") kod pustim pomocou ikonz Plaz popripade klavesovou zkratkou vyberie to verzi Python na které bezi a uklada do "pameti" = kernel, znovu spustim play
+	-- v jedne bunce muzu mit vic radku
+	-- zmenim kod a spustim pak vidim výsledek zmeneho kodu
+	-- +Code další bunku pro pzthon kod 
+	-- +Markdown pridavam textak ne python
+		-- kdyz pouziju format aby se mi pouzil kliknu na fajfku
+
+KNIHOVNA PANDAS
+- pracuje s tabulkami = dataframe
+- instalace	%pip install pandas
+- import pandas #spust a je pripravena
+- import pandas as pd #muzu pridat alias abych pak nemusela vypisovat cele 
+- soubor se kterym pracuju - data uloz do slozky kde mam jupyter ntb
+- kdyz chci barevne rozliseni pro csv nainstaluj extension csv rainbow
+- nacteni souboru pd.read_csv()
+- sloupeckum rikame series
+- jednotlive radkz jsou indexovane prvni radek je index 1
+- nove indexovani soubor.set_index("fc_id") # pouziju sloupec fc_id jako index
+- soubor.reset_index()
+- zobrazeni zakladnich dat soubor.info()
+	- kolik radku
+	- jake sloupecky, datove typy
+- zobrazeni prvnich 5 radku pro orientaci soubor.head()
+- .tail()
+- .sample
+- .columns
+- .shape
+- soubor["sloupec"] #vypise pouze jeden vybrany sloupec jako series
+- soubor[["sloupec"]] #vypise pouze jeden vybrany sloupec jako data frame
+- soubor["sloupec1","sloupec2"] #vypise dva vybrane ale uz jako data frame
+- soubor.describe()
+- coubor.describe(percentiles=[.1,.2,.45,.9],include="all")
+	#prida mi k vypisu urcene percentily 
+	#zobrazi taky pocet unik.hodnot a nejcastejsi all
+CVICENIE
+-titanic kde chybi zaznam Age, Cabin,Embarked
+
+	

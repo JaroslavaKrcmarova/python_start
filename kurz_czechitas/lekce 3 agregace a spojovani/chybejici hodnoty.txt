@@ -1,0 +1,6 @@
+Chybejici hodnoty jsou při výpisu zobrazovány jako NaN
+Metody
+
+isna() ... vrátí True pro řádek s hodnotou nebo False pro prázdný řádek
+notna() ...vrací False pro řádek s hodnotou nebo True pro prázdný řádek
+dropna()...odstraníme všechny řádky, kde chybí napr mnozstvi dropna(subset="amount")
