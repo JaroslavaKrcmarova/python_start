@@ -1,7 +1,7 @@
 # python_start
 # Python a Jupyter Notebook Projekty
 
-Toto repository obsahuje mé kódy v Pythonu a Jupyter Notebooky, které jsem vytvořil během kurzů:
+Toto repository obsahuje mé kódy v Pythonu a Jupyter Notebooky, které jsem si vytvořila během kurzů:
 
 - **Kurz od Michala Hučka** – Pythonu na youtube
 - **Kurz "Datová analýza v Pythonu" od Czechitas** – pokročilejší práce s daty, analýza datasetů a praktické úlohy.
